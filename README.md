@@ -3,7 +3,7 @@ Basic ruby translator for your locales. Place an **input.yml** under the script 
 
 ``` ruby simple-local-translate.rb ``` 
 
-Also, you made need to:
+Also, you may need to:
 
 ``` gem install google-cloud-translate-v2 pry ``` 
 
