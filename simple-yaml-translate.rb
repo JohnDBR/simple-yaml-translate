@@ -11,9 +11,7 @@ TRANSLATOR = Google::Cloud::Translate::V2.new(
 def flatten_hash(hash)
   hash.each_with_object({}) do |(k, v), h|
     if v.is_a? Hash
-      flatten_hash(v).map do |h_k, h_v|
-        h["#{k}.#{h_k}".to_sym] = h_v
-      end
+      flatten_hash(v).map { |h_k, h_v| h["#{k}.#{h_k}".to_sym] = h_v }
     else 
       h[k] = v
     end
@@ -23,9 +21,9 @@ end
 def unflatten_hash(hash)
   hash.transform_keys! { |tk| tk.to_s.split('.') }
   hash.each_with_object({}) do |(k, v), h|
-    node = h
-    k[0..-2].each { |x| node[x] ||= {}; node = node[x] }
-    node[k[-1]] = v
+    sub_hash = h
+    k[0..-2].each { |x| sub_hash[x] ||= {}; sub_hash = sub_hash[x] }
+    sub_hash[k[-1]] = v
   end
 end
 
