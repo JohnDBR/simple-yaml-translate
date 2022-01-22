@@ -1,0 +1,21 @@
+activerecord:
+  attributes:
+    site:
+      host: "Site Key"
+      name: "Site Name"
+      
+  admin:
+    account:
+      form:
+        copy_form:
+          all_sites: "All Sites"
+          all_sites_confirmation: "Selecting ALL"
+          close: Close
+          copy: Copy
+          label: "Copy Form"
+          name: "Form Name"
+          sites: Sites
+        host:
+          hint: "Your %{platform_name} account is at %{account_url}."
+          label: "Account URL"
+          fail: "This host is already taken."
