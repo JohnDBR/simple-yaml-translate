@@ -1,2 +1,2 @@
 # simple-yaml-translate
-Basic ruby translator for your locales
+Basic ruby translator for your locales.
