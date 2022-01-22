@@ -7,4 +7,4 @@ Also, you made need to:
 
 ``` gem install google-cloud-translate-v2 pry ``` 
 
--  Happy coding! 
+ Happy coding! 
