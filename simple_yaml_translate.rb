@@ -5,7 +5,7 @@ require 'google/cloud/translate/v2'
 require 'pry'
 
 TRANSLATOR = Google::Cloud::Translate::V2.new(
-  key: 'AIzaSyAVuXWQt25s6pw_ZrTAxTzPk_nRgS-X1fw'
+  key: '' # TODO: ENV API KEY
 )
 
 def flatten_hash(hash)
