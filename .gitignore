@@ -56,6 +56,8 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 # Script for usual output files
+translated/
+
 de_output.yml
 es_output.yml
 fr_output.yml

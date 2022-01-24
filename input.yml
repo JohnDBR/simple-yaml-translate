@@ -1,21 +1,66 @@
-activerecord:
-  attributes:
-    site:
-      host: "Site Key"
-      name: "Site Name"
-      
-  admin:
-    account:
-      form:
-        copy_form:
-          all_sites: "All Sites"
-          all_sites_confirmation: "Selecting ALL"
-          close: Close
-          copy: Copy
-          label: "Copy Form"
-          name: "Form Name"
-          sites: Sites
-        host:
-          hint: "Your %{platform_name} account is at %{account_url}."
-          label: "Account URL"
-          fail: "This host is already taken."
+licensed_boards:
+  approval_number: "Approval Number"
+  association_text: "Association Text"
+  certificate_text: "Certificate Text"
+  edit:
+    title: "Edit Licensed Board"
+  empty: "There are no licensed boards yet..."
+  errors: ""
+  form:
+    approval_number: "Approval Number"
+    association_text: "Association Text"
+    certificate_text: "Certificate Text"
+  label: "Licensed Board"
+  label_plural: "Licensed Boards"
+  new:
+    label: "Licensed Board"
+    title: "New Licensed board"
+  not_found: "Licensed Board not found"
+  successfully_created: "The Licensed Board was created."
+  successfully_destroyed: "The Licensed Board was removed."
+  successfully_updated: "The Licensed Board was saved."
+  title: "Licensed Board Configuration"
+  boards:
+    abbreviation: Abbreviation
+    edit:
+      title: "Edit Board"
+    empty: "There are no boards yet..."
+    errors:
+      board_taken: "Board name has already been taken"
+      abbreviation_taken: "Board abbreviation has already been taken"
+    form:
+      board: Board
+      abbreviation: Abbreviation
+      edit_warning: "WARNING: Editing this Board will result in potentially corrupting existing data."
+    label: "Board"
+    label_plural: "Boards"
+    new:
+      label: "Board"
+      title: "New Board"
+    not_found: "Board not found"
+    successfully_created: "The Board was created."
+    successfully_destroyed: "The Board was removed."
+    successfully_updated: "The Board was saved."
+    title: "Board Configuration"
+  license_types:
+    description: Description
+    edit:
+      title: "Edit License Type"
+    empty: "There are no license types yet..."
+    errors:
+      path_taken: "Path has already been taken"
+      title_taken: "Title has already been taken"
+    form:
+      title: Title
+      path: Path
+    label: "License Type"
+    label_plural: "License Types"
+    new:
+      label: "License Type"
+      title: "New License Type"
+    not_found: "License Type not found"
+    path: Path
+    successfully_created: "The License Type was created."
+    successfully_destroyed: "The License Type was removed."
+    successfully_updated: "The License Type was saved."
+    title: "License Type Configuration"
