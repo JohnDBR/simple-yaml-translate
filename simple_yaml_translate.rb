@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
+require 'dotenv'
 require 'yaml'
 require 'google/cloud/translate/v2'
 require 'pry'
 
+Dotenv.load
+
 TRANSLATOR = Google::Cloud::Translate::V2.new(
-  key: '' # TODO: ENV API KEY
+  key: ENV['GOOGLE']
 )
 
 def flatten_hash(hash)
@@ -30,23 +33,34 @@ def unflatten_hash(hash)
   end
 end
 
+errors = {}
 source = YAML.load_file('./input.yml')
 source_hash = source.to_hash
 flatten_source_hash = flatten_hash(source_hash)
 
 %w[es de fr pt vi zh-CN].each do |language|
+  failure = false
   flatten_translated_hash = {}
-  flatten_source_hash.each_with_object(flatten_translated_hash) do |(k, v), h|
-    h[k] = TRANSLATOR.translate(v, to: language).text
-  rescue StandardError => _e
-    p "Language: #{language} FAILED"
-    p "Possible variable-key error: value: #{v}, key: #{k}, hash#{h}"
 
-    break
+  flatten_source_hash.each_with_object(flatten_translated_hash) do |(k, v), h|
+    h[k] = TRANSLATOR.translate(v, to: language, format: 'text').text
+  rescue StandardError => _e
+    failure = true
+    errors[language] ||= {}
+    errors[language][k] ||= v 
+    
+    h[k] = 'FAILURE!'
   end
 
   unflatten_translated_hash = unflatten_hash(flatten_translated_hash)
   File.open("translated/#{language}_output.yml", 'w+') { |file| file.write(unflatten_translated_hash.to_yaml) }
 
-  puts "Language: #{language} translate successful"
+  if failure
+    puts " ---- Language: #{language} translate failed" 
+  else
+    puts " ---- Language: #{language} translate successful"
+  end
 end
+
+puts 'Errors ->'
+pp errors

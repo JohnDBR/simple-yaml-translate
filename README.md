@@ -5,6 +5,6 @@ Basic ruby translator for your locales. Place an **input.yml** under the script 
 
 Also, you may need to:
 
-``` gem install google-cloud-translate-v2 pry ``` 
+``` bundle install ``` 
 
- Happy coding! 
+  Happy coding! 

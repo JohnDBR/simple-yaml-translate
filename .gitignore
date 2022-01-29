@@ -51,6 +51,7 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+.ruby-version
 
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
@@ -58,9 +59,13 @@ build-iPhoneSimulator/
 # Script for usual output files
 translated/
 
+# Script for usual output files
 de_output.yml
 es_output.yml
 fr_output.yml
 pt_output.yml
 vi_output.yml
 zh-CN_output.yml
+
+# Dotenv vars
+.env
