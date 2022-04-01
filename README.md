@@ -8,3 +8,5 @@ Also, you may need to:
 ``` bundle install ``` 
 
   Happy coding! 
+
+As [ñapa](https://monocuco.info/), you can use [Pry](https://github.com/pry/pry) gem.
