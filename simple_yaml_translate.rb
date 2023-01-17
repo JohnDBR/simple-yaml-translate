@@ -38,11 +38,14 @@ source = YAML.load_file('./input.yml')
 source_hash = source.to_hash
 flatten_source_hash = flatten_hash(source_hash)
 
-%w[es de fr pt vi zh-CN].each do |language|
+puts 'SIMPLE YAML TRANSLATION HAS STARTED!'
+
+%w[es de fr pt vi zh-CN th].each do |language|
   failure = false
   flatten_translated_hash = {}
 
   flatten_source_hash.each_with_object(flatten_translated_hash) do |(k, v), h|
+    print '.'
     h[k] = TRANSLATOR.translate(v, to: language, format: 'text').text
   rescue StandardError => _e
     failure = true
@@ -51,6 +54,7 @@ flatten_source_hash = flatten_hash(source_hash)
     
     h[k] = 'FAILURE!'
   end
+  print "\n"
 
   unflatten_translated_hash = unflatten_hash(flatten_translated_hash)
   File.open("translated/#{language}_output.yml", 'w+') { |file| file.write(unflatten_translated_hash.to_yaml) }
